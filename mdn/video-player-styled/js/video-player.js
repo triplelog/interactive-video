@@ -17,18 +17,33 @@
 		videoControls.setAttribute('data-state', 'visible');
 
 		// Obtain handles to buttons and other elements
+		var backone = document.getElementById('backone');
 		var playpause = document.getElementById('playpause');
-		var stop = document.getElementById('stop');
+		var forwardone = document.getElementById('forwardone');
 		var mute = document.getElementById('mute');
 		var volinc = document.getElementById('volinc');
 		var voldec = document.getElementById('voldec');
 		var progress = document.getElementById('progress');
+		var progressOver = document.getElementById('progressOver');
 		var progressBar = document.getElementById('progress-bar');
 		var fullscreen = document.getElementById('fs');
+		var figcaption = document.getElementById('figcaption');
 
-		// If the browser doesn't support the progress element, set its state for some different styling
-		var supportsProgress = (document.createElement('progress').max !== undefined);
-		if (!supportsProgress) progress.setAttribute('data-state', 'fake');
+
+		progress.setAttribute('data-state', 'fake');
+		
+		for (var i=0;i<steps.length;i++) {
+			var node = document.createElement("span");
+			node.classList.add("progress"+steps[i].type);
+			node.classList.add("progressType");
+			node.style.width = steps[i].time+"%";
+			node.addEventListener("mouseover", chgFigCaption.bind(null,i), false);
+			progressOver.appendChild(node);
+			
+		}
+		function chgFigCaption(i) {
+			figcaption.innerHTML = steps[i].text;
+		}
 
 		// Check if the browser supports the Fullscreen API
 		var fullScreenEnabled = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
@@ -142,13 +157,36 @@
 				else video.pause();
 			});			
 
-			// The Media API has no 'stop()' function, so pause the video and reset its time and the progress bar
-			stop.addEventListener('click', function(e) {
-				video.pause();
-				video.currentTime = 0;
-				progress.value = 0;
-				// Update the play/pause button's 'data-state' which allows the correct button image to be set via CSS
-				changeButtonState('playpause');
+			// Go to next step
+			forwardone.addEventListener('click', function(e) {
+				var totalPercent = 0
+				for (var i=0;i<steps.length;i++) {
+					totalPercent += steps[i].time;
+					if (video.currentTime < totalPercent * video.duration / 100.0) {
+						video.currentTime = totalPercent * video.duration / 100.0;
+						progress.value = totalPercent * video.duration / 100.0;
+						break;
+					}
+				}
+				
+			});
+			backone.addEventListener('click', function(e) {
+				var totalPercent = 0
+				for (var i=0;i<steps.length;i++) {
+					totalPercent += steps[i].time;
+					if (video.currentTime < totalPercent * video.duration / 100.0 + 1) {
+						if (i>0){
+							video.currentTime = (totalPercent - steps[i].time) * video.duration / 100.0;
+							progress.value = (totalPercent - steps[i].time) * video.duration / 100.0;
+							break;
+						}
+						else {
+							video.currentTime = 0;
+							progress.value = 0;
+							break;
+						}
+					}
+				}
 			});
 			mute.addEventListener('click', function(e) {
 				video.muted = !video.muted;
@@ -173,7 +211,7 @@
 			});
 
 			// React to the user clicking within the progress bar
-			progress.addEventListener('click', function(e) {
+			progressOver.addEventListener('click', function(e) {
 				//var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth; // Also need to take the parent into account here as .controls now has position:relative
 				var pos = (e.pageX  - (this.offsetLeft + this.offsetParent.offsetLeft)) / this.offsetWidth;
 				video.currentTime = pos * video.duration;

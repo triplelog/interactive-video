@@ -27,7 +27,6 @@ a:hover, a:focus {
 	text-decoration:underline;
 }
 figure {
-	position:relative;
 	max-width:1024px;
 	max-width:64rem;
 	width:100%;
@@ -59,7 +58,7 @@ video {
 	overflow:hidden;
 	background:transparent;
 	width:100%;
-	height:7%; /* of figure's height */
+	height:8.0971659919028340080971659919028%; /* of figure's height */
 	position:relative;
 }
 .controls[data-state=hidden] {
@@ -70,7 +69,7 @@ video {
 }
 .controls > * {
 	float:left;
-	width:3.30625%;
+	width:3.90625%;
 	height:100%;
 	margin-left:0.1953125%;
 	display:block;
@@ -86,16 +85,15 @@ video {
 	text-align:center;
 	overflow:hidden;
 	white-space:nowrap;
-	text-overflow:ellipsis;
-	border:none;
-	cursor:pointer;
-	text-indent:-99999px;
-	background:transparent;
-	background-size:contain;
-	background-repeat:no-repeat;
+  	text-overflow:ellipsis;
+  	border:none;
+  	cursor:pointer;
+  	text-indent:-99999px;
+  	background:transparent;
+  	background-size:contain;
+  	background-repeat:no-repeat;
 }
-.controls button:hover, .controls button:focus, .subtitles-menu li button:hover, .subtitles-menu li button:focus,
-.subtitles-menu li button[data-state="active"] {
+.controls button:hover, .controls button:focus {
 	opacity:0.5;
 }
 .controls button[data-state="play"] {
@@ -125,18 +123,6 @@ video {
 .controls button[data-state="cancel-fullscreen"] {
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpFNDZDNDg2MEEzMjFFMjExOTBEQkQ4OEMzRUMyQjhERCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCM0M2OUNCOUE0MDcxMUUyQjgwQkYzQzhCMDZBRTU1NCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCMzlFNDkzMUE0MDcxMUUyQjgwQkYzQzhCMDZBRTU1NCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQzQ0QwNDBBMDJBNEUyMTFCOTZEQzYyRDgyRUVBOUZDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU0NkM0ODYwQTMyMUUyMTE5MERCRDg4QzNFQzJCOEREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1VELOwAAAadJREFUeNrs2EtOwzAQBuAEOAEIKsQluAAbGqSGHRIrEKveoQEWNOF0SFyGZ6GkwowlWwpm7IwdT8kiI/2LWk39yY4faiqESPpcG0nPq/fARE5xM0btrIGw7fQ4gJeQJ8gRI24MeYac+wIvICv5fcgrE1Li3lUftUZSgAeQhXpQMCGbOJ03yC51BM8gSyYkhpN95b7voA+yQtpukLbMgjsNWSRUZKXa/2wQBjJzjVwosA1ZNdowoMwtFRcKtCHNzzagsDybk/ZlItCGpAJJuK5AjVx1ANYuHAb0PYsPIZsdtpgt9RvRzuIEWa1dp1hYtqBOU3zf0qEvUK/uVmBqotI0/ffb1XBhHYBIlQyL5Dr2NlNGBBZcJ0kZAVhwniQP6qgLrS/II9dJMoF8RhhBee06jj3FGK72ANYIchwLiOFkByeQOQFYqCv9koL0BeYOnK65AzgzfgtDZqFACk7XHdI2Q9pakVTgxAPnW7lruinAfcgHE86FfIHsUUdwCvlmwmFIubde+b6DU/V3BAeuiVxoXMgqHq3hwjLyulEP98EBOAB/148AAwA7RI/R8UopbwAAAABJRU5ErkJggg==');	
 }
-.controls button[data-state="subtitles"] {
-	height:85%;
-	text-indent:0;
-	font-size:16px;
-	font-size:1rem;
-	font-weight:bold;
-	color:#666;
-	background:#000;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-	border-radius:2px;
-}
 .controls progress {
 	display:block;
 	width:100%;
@@ -160,49 +146,13 @@ video {
 	display:inline-block;
 	background-color:#2a84cd;	
 }
+
 .controls progress::-moz-progress-bar {
 	background-color:#0095dd;
 }
 /* Chrome requires its own rule for this, otherwise it ignores it */
 .controls progress::-webkit-progress-value {
 	background-color:#0095dd;
-}
-/* subtitles menu */
-.subtitles-menu {
-	display:none;
-	position:absolute;
-	bottom:14.8%;
-	right:20px;
-	background:#666;
-	list-style-type:none;
-	margin:0;
-	padding:0;
-	width:100px;
-	padding:10px;
-}
-.subtitles-menu li {
-	padding:0;
-	text-align:center;
-}
-.subtitles-menu li button {
-	border:none;
-	background:#000;
-	color:#fff;
-	cursor:pointer;
-	width:90%;
-	padding:2px 5px;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-	border-radius:2px;
-}
-
-/* WebVTT cues */
-::cue { 
-	color:#ccc;
-}
-::cue(v[voice='Test']) {
-	color:#fff;
-	background:#0095dd;
 }
 
 /* fullscreen */
@@ -261,15 +211,6 @@ figure[data-fullscreen=true] .controls .progress {
 		height:30px;
 		height:1.876rem;
 	}
-	.controls button[data-state="subtitles"] {
-		font-size:0.6875rem;
-	}
-	.subtitles-menu {
-		right:0;
-	}
-	.subtitles-menu li button {
-		font-size:0.6875rem;
-	}
 }
 @media screen and (max-width:42.5em) {
 	.controls {
@@ -277,14 +218,14 @@ figure[data-fullscreen=true] .controls .progress {
 	}
 	.controls > * {
 		display:block;
-		width:14.5667%;
+		width:16.6667%;
 		margin-left:0;
 		height:40px;
 		height:2.5rem;
 		margin-top:2.5rem;
 	}
 	.controls .progress {
-		/*display:table-subtitle;*/ /* this trick doesn't work as elements are floated and the layout doesn't work */
+		/*display:table-caption;*/ /* this trick doesn't work as elements are floated and the layout doesn't work */
 		position:absolute;
 		top:0;
 		width:100%;
@@ -297,13 +238,6 @@ figure[data-fullscreen=true] .controls .progress {
 	}
 	.controls button {
 		background-position:center center;
-	}
-	.controls button[data-state="subtitles"] {
-		width:10%;
-		height:2.2rem;
-	}
-	.subtitles-menu {
-		bottom:42%;
 	}
 	figcaption {
 		text-align:center;
