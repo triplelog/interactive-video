@@ -33,5 +33,7 @@ do
 	-crop 704x602+500+0 -background white -extent 1204x602 -write img0$((i * 8 - 1)).png \
 	-crop 604x602+600+0 -background white -extent 1204x602 img0$((i * 8)).png
 done
-ffmpeg -framerate 1 -i img%03d.png output.mp4
-ffmpeg -i output.mp4 -c:v libvpx -crf 10 -b:v 1M -c:a libvorbis output.webm
+ffmpeg -framerate 1 -i img%03d.png -pix_fmt yuv420p output.mp4
+ffmpeg -i output.mp4 output.webm
+python makeframesffmpeg.py | ffmpeg -f rawvideo -vcodec rawvideo -s 1204x602 -framerate 1 -i - -pix_fmt yuv420p outputtest3.mp4
+ffmpeg -framerate 1 -i img%03d.bmp -pix_fmt yuv420p output.mp4
